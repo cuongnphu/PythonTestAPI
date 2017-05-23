@@ -3,9 +3,9 @@ import unittest
 from nose.tools import assert_is_not_none,assert_equal
 
 # Local import ....
-from utils.services import *
+from src.services import *
 
-# Running unit test
+# Running Pytest for testing
 class MyTestCase(unittest.TestCase):
 
     def test_list_all_user(self):
