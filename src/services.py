@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 # Local imports...
 from constants import BASE_URL
 
-# ===================== Method for find user ===========================
+# ===============================  Method for find user ===========================
 def get_all_user():
     response = requests.get(urljoin(BASE_URL, 'users'))
     if response.ok:
@@ -43,7 +43,7 @@ def get_user_by_email(strEmail):
 
 
 
-# ======================= Method for create new user ====================
+# =================================== Method for create new user ====================
 def create_new_user():
     response = requests.post(urljoin(BASE_URL, 'users'))
     if response.ok:
@@ -58,7 +58,7 @@ def create_new_user_with_data(data):
     else:
         return None
 
-# ======================== Method for delete user =========================
+# =================================== Method for delete user =========================
 def delete_user_by_id(id):
     response = requests.delete(urljoin(BASE_URL,'users/' + id))
     if response.ok:
@@ -66,7 +66,7 @@ def delete_user_by_id(id):
     else:
         return None
 
-# ========================= Method for update user ===========================
+# ==================================== Method for update user ===========================
 def update_user_by_id(id,data):
     response = requests.put(urljoin(BASE_URL,'users/' + id),data=data)
     if response.ok:
