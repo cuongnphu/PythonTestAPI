@@ -1,76 +1,87 @@
-# Third-party imports...
 import requests
 from urllib.parse import urljoin
-
-# Local imports...
 from constants import BASE_URL
 
-# ===================== Method for find user ===========================
+
+# Get list users
 def get_all_user():
-    response = requests.get(urljoin(BASE_URL, 'users'))
-    if response.ok:
-        return response
-    else:
-        return None
+    # Create URL for request
+    all_user_url = urljoin(BASE_URL, 'users')
 
-def get_user_by_id(id):
-    response = requests.get(urljoin(BASE_URL, 'users?id=' + id))
-    if response.ok:
-        return response
-    else:
-        return None
-
-def get_user_by_name(strName):
-    response = requests.get(urljoin(BASE_URL,'users?name=' + strName))
-    if response.ok:
-        return response
-    else:
-        return None
-
-def get_user_by_username(strUserName):
-    response = requests.get(urljoin(BASE_URL,'users?username=' + strUserName))
-    if response.ok:
-        return response
-    else:
-        return None
-
-def get_user_by_email(strEmail):
-    response = requests.get(urljoin(BASE_URL,'users?email=' + strEmail))
-    if response.ok:
-        return response
-    else:
-        return None
+    # Return response
+    return requests.get(all_user_url)
 
 
+# Get user by id
+def get_user_by_id(user_id):
+    # Create URL for request
+    user_by_id_url = urljoin(BASE_URL, 'users?id=' + user_id)
 
-# ======================= Method for create new user ====================
+    # Return response
+    return requests.get(user_by_id_url)
+
+
+# Get user by name
+def get_user_by_name(str_name):
+    # Create URL for request
+    user_by_name_url = urljoin(BASE_URL, 'users?name=' + str_name)
+
+    # Return response
+    return requests.get(user_by_name_url)
+
+
+# Get user by username
+def get_user_by_username(str_username):
+    # Create URL for request
+    user_by_username_url = urljoin(BASE_URL, 'users?username=' + str_username)
+
+    # Return response
+    return requests.get(user_by_username_url)
+
+
+# Get user by email
+def get_user_by_email(str_email):
+    # Create URL for request
+    user_by_email_url = urljoin(BASE_URL, 'users?email=' + str_email)
+
+    # Return response
+    return requests.get(user_by_email_url)
+
+
+# Create new user without data
 def create_new_user():
-    response = requests.post(urljoin(BASE_URL, 'users'))
-    if response.ok:
-        return response
-    else:
-        return None
+    # Create URL for request
+    create_new_user_url = urljoin(BASE_URL, 'users')
 
+    # Return response
+    return requests.post(create_new_user_url)
+
+
+# Create new user with data
 def create_new_user_with_data(data):
-    response = requests.post(urljoin(BASE_URL, 'users'),data=data)
-    if response.ok:
-        return response
-    else:
-        return None
+    # Create URL for request
+    create_new_user_url = urljoin(BASE_URL, 'users')
 
-# ======================== Method for delete user =========================
-def delete_user_by_id(id):
-    response = requests.delete(urljoin(BASE_URL,'users/' + id))
-    if response.ok:
-        return response
-    else:
-        return None
+    # Return response
+    return requests.post(create_new_user_url , data=data)
 
-# ========================= Method for update user ===========================
-def update_user_by_id(id,data):
-    response = requests.put(urljoin(BASE_URL,'users/' + id),data=data)
-    if response.ok:
-        return response
-    else:
-        return None
+
+# Delete user by id
+def delete_user_by_id(user_id):
+    # Create URL for request
+    delete_user_url = urljoin(BASE_URL,'users/' + user_id)
+
+    # Return response
+    return requests.delete(delete_user_url)
+
+
+# Update user by id
+def update_user_by_id(user_id, data):
+    # Create URL for request
+    update_user_url = urljoin(BASE_URL,'users/' + user_id)
+
+    # Return response
+    return requests.put(update_user_url, data=data)
+
+
 
