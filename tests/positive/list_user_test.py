@@ -4,6 +4,7 @@ from src.services import *
 
 class ListUserCases(unittest.TestCase):
 
+    # Test list all user
     def test_list_all_user(self):
         # Call the service
         response = get_all_user()
